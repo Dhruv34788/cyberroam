@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+
+  "name": "Cyber-roam Auto-Login",
+  "description": "This is Cyber-roam Auto-Login Extention",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title" : "click here"
+  },
+  "content_scripts": [
+        {
+            "matches": [
+                "https://10.100.56.55:8090/httpclient.html"
+            ],
+            "js": [
+                "myscript.js"
+            ]
+      }
+    ],
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ]
+
+
+}
