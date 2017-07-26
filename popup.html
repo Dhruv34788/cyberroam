@@ -5,23 +5,31 @@
  value "popup.html".
  -->
 <html>
-  <head>
-    <title>This is Popup</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-    </style>
+    <head>
+        <title>This is Popup</title>
+    </head>
 
-  </head>
-  <script type="text/javascript" src="popup.js"></script><br>
-  <button type="button" onclick="fill in text box with the word 'testing123'">Go!</button>
+    <body>
+        
+        <form onsubmit="submitted()">
+        <label>ID</label>
+        <input id="studentId" type="text" name="SID" required /> <br/>
+        <label>Password</label>
+        <input id="password" type="password" name="pwd" required  /> <br/>
+            <input type="submit" value="Submit"/>
+        </form>
+        
+        <script>
+            function submitted(){
+                var x = document.getElementById("studentId");
+                localStorage.setItem('id',x.value);
+                var y = localStorage.getItem('id');
+                var x = document.getElementById("password");
+                localStorage.setItem('pass',x.value);
+                var y = localStorage.getItem('pass');
+                alert(localStorage.getItem('id')+"  "+localStorage.getItem('pass'));
+                return true;
+            }
+        </script>
+    </body>  
 </html>
